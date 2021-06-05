@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DesafioFull_Application\DesafioFull_Application.csproj" />
+    <ProjectReference Include="..\DesafioFull_Repository\DesafioFull_Repository.csproj" />
+  </ItemGroup>
+
+</Project>
