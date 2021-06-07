@@ -10,8 +10,9 @@ namespace DesafioFull_Application.Dtos
         public Cliente ClienteDevedor { get; set; }
         public decimal Juros { get; set; }
         public decimal Multa { get; set; }
-        public List<Parcela> Parcelas { get; set; }
         public decimal ValorOriginal { get; set; }
         public decimal ValorAtualizado { get; set; }
+        public int DiasAtraso { get; set; }
+        public List<Parcela> Parcelas { get; set; }
     }
 }

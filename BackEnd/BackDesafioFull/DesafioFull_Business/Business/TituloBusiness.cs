@@ -10,6 +10,8 @@ namespace DesafioFull_Business.Business
 {
     public class TituloBusiness : ITituloBusiness
     {
+        DateTime TODAY = DateTime.Today;
+
         private readonly ITituloRepository _tituloRepository;
 
         public TituloBusiness(ITituloRepository tituloRepository)
@@ -71,7 +73,8 @@ namespace DesafioFull_Business.Business
         private TituloResponse AtualizaTitulo(TituloResponse titulo)
         {
             titulo.ValorOriginal = CalculaValorParcelas(titulo.Parcelas);
-            
+            titulo.DiasAtraso = ((int)((titulo.Parcelas.OrderBy(x => x.NumeroParcela).FirstOrDefault().DataVencimento) - TODAY).TotalDays) * -1;
+
             var multaCorrigida = titulo.ValorOriginal * titulo.Multa;
             var juros = (titulo.Juros / 100) * 30;
             var valorJuros = ObterValorJuros(titulo.Parcelas, juros);
@@ -88,12 +91,11 @@ namespace DesafioFull_Business.Business
 
         private decimal ObterValorJuros(List<Parcela> parcelas, decimal juros)
         {
-            DateTime today = DateTime.Today;
             decimal valorJuros = 0;
 
             foreach (var parcela in parcelas)
             {
-                var diasAtraso = ((decimal)(parcela.DataVencimento - today).TotalDays)*-1;
+                var diasAtraso = ((decimal)(parcela.DataVencimento - TODAY).TotalDays) * -1;
                 valorJuros += juros * diasAtraso * parcela.ValorParcela;
             }
 
