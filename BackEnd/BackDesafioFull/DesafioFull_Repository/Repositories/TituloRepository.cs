@@ -53,15 +53,15 @@ namespace DesafioFull_Repository.Repositories
             Titulos.Add(new Titulo()
             {
                 id = 2,
-                NumeroTitulo = "33256",
+                            NumeroTitulo = "33256",
                 Multa = 2,
                 Juros = 1,
-                ClienteDevedor = new Cliente()
-                {
-                    CPF = "12345789854",
-                    Nome = "Eric Macedo"
-                },
-                Parcelas = new List<Parcela>()
+                            ClienteDevedor = new Cliente()
+                            {
+                                CPF = "12345789854",
+                                Nome = "Eric Macedo"
+                            },
+                            Parcelas = new List<Parcela>()
                             {
                                 new Parcela()
                                 {
