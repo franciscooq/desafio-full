@@ -11,7 +11,7 @@ export class TituloComponent implements OnInit {
 
   titulo: TituloModel = new TituloModel();
   titulos: Array<any> = Array();
-  
+
   constructor(private tituloService: TituloService) { }
 
   ngOnInit(): void {
@@ -20,6 +20,13 @@ export class TituloComponent implements OnInit {
 
   cadastrar(){
     console.log(this.titulo);
+    this.tituloService.cadastrarTitulo(this.titulo).subscribe(titulo => {
+      console.log(titulo);
+      this.titulo = new TituloModel();
+      this.listarTitulos();
+    }, err =>{ 
+      console.log('Erro ao Cadastrar Titulos: ', err);
+    });
   }
 
   listarTitulos(){

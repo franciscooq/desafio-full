@@ -1,9 +1,9 @@
 export class TituloModel{
     numeroTitulo!: string;
-    clienteDevedor!: ClienteDevedor;
+    // clienteDevedor!: ClienteDevedor;
     juros!: string;
     multa!: string;
-    parcelas!: Parcelas;
+    // parcelas!: Parcelas;
 }
 
 class ClienteDevedor{
