@@ -23,7 +23,17 @@
 <br>
 <hr>
 <h2>Titulos Cadastrados</h2>
-<table>
+<ul *ngFor="let titulo of titulos">
+    <li><strong>Número do título:</strong> {{titulo.numeroTitulo}}</li>
+    <li><strong>Nome do devedor:</strong> {{titulo.clienteDevedor.nome}}</li>
+    <li><strong>Qtde de parcelas:</strong> {{titulo.parcelas.length}}</li>
+    <li><strong>Valor original:</strong> {{titulo.valorOriginal}}</li>
+    <li><strong>Dias em atraso:</strong> {{titulo.diasAtraso}}</li>
+    <li><strong>Valor atualizado na data de hoje:</strong> {{titulo.valorAtualizado}}</li>
+    <p>---------------------------------------------</p>
+</ul>
+
+<!-- <table>
     <tr>
         <th>Número do título</th>
         <th>Nome do devedor</th>
@@ -40,4 +50,4 @@
         <td>{{titulo.diasAtraso}}</td>
         <td>{{titulo.valorAtualizado}}</td>
     </tr>
-</table>
+</table> -->
